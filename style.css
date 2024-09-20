@@ -1,0 +1,310 @@
+/* Menu vertical */
+.side-menu {
+    position: fixed;
+    top: 20%;
+    left: -150px; /* Menu rétracté hors de l'écran, ne montrant qu'une partie */
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease; /* Transition pour le mouvement latéral */
+}
+
+.side-menu:hover {
+    left: 0; /* Menu visible lorsqu'on passe la souris dessus */
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    margin-bottom: 20px;
+    opacity: 0; /* Les éléments de la liste sont invisibles quand le menu est rétracté */
+    transition: opacity 0.3s ease 0.3s; /* Transition pour rendre les éléments visibles */
+}
+
+.side-menu:hover ul li {
+    opacity: 1; /* Les éléments de la liste deviennent visibles au survol du menu */
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.side-menu ul li a:hover {
+    color: #f4a261;
+}
+
+/* Barre visible même quand le menu est rétracté */
+.side-menu:before {
+    content: '☰'; /* Icône de menu ou un symbole pour indiquer qu'il est rétracté */
+    position: absolute;
+    top: 50%;
+    right: -30px; /* Position de la barre/menu */
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Language switch (changement de langue) */
+.language-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.language-switch a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.language-switch a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Styles pour les icônes des réseaux sociaux */
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.5em; /* Taille des icônes */
+    transition: color 0.3s ease;
+}
+
+.social-links a i {
+    margin-right: 8px;
+}
+
+.social-links a:hover {
+    color: #f4a261; /* Couleur au survol */
+}
+
+/* Styles pour les compétences */
+.skills-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    font-size: 1.2em;
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.skill i {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Ajout du smooth scrolling */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5em;
+    letter-spacing: 2px;
+}
+
+header h2 {
+    font-weight: 300;
+    margin-top: 10px;
+    font-size: 1.8em;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #f4a261; /* Ajout d'un effet hover */
+}
+
+#projects, #skills, #contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+    position: relative;
+}
+
+h2:after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background-color: #333;
+    display: block;
+    margin: 10px auto;
+}
+
+.project-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project {
+    width: 300px;
+    margin: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-10px); /* Ajout d'un effet de soulèvement */
+}
+
+.project h3 {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.project p {
+    padding: 15px;
+    background-color: #fff;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.skills-list {
+    font-size: 1.5em;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+form input, form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 1.5em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#scrollTopBtn:hover {
+    background-color: #555;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .project-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project {
+        width: 90%;
+    }
+
+    form {
+        width: 90%;
+    }
+}
