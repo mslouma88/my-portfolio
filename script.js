@@ -27,20 +27,3 @@ function updateClock() {
 }
 
 setInterval(updateClock, 1000);
-
-
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    emailjs.sendForm(${{secrets.SERVICE_ID}}, ${{secrets.TEMPLATE_ID}}, this)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            document.getElementById('message-success').style.display = 'block';
-        }, function(error) {
-            console.log('FAILED...', error);
-            document.getElementById('message-error').style.display = 'block';
-        });
-
-    // Optionnel : Réinitialiser le formulaire après l'envoi
-    this.reset();
-});

@@ -10,11 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- SDK EmailJS -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init(${{secrets.UTILISATEUR_EMAILJS}});
-        })();
-    </script>
+
 </head>
 <body>
     <!-- Menu vertical -->
@@ -50,70 +46,98 @@
         <div class="project-grid">
             <!-- Remplissage avec les projets du CV -->
             <div class="project">
-                <img src="img/project1.jpg" alt="Projet BI sur Azure">
-                <h3><a href="https://lien-vers-projet1.com">Projet BI sur Azure</a></h3>
-                <p>Conception d'une solution de Business Intelligence sur Microsoft Azure pour Transia.</p>
+                <img src="img/BI.png" alt="Projet BI sur Azure">
+                <h3><a href="https://lien-vers-projet1.com">Projet Microsoft BI & Microsoft Azure</a></h3>
+                <p>Conception d'une solution de Business Intelligence sur Microsoft Azure et création de dashboard pour Transia.</p>
             </div>
             <div class="project">
-                <img src="img/project2.jpg" alt="Prédiction de Défaut de Paiement">
+                <img src="img/mlops.jpg" alt="Prédiction de Défaut de Paiement">
                 <h3><a href="https://lien-vers-projet2.com">Prédiction de Défaut de Paiement</a></h3>
                 <p>Développement d'un modèle prédictif de défaut de paiement pour une banque avec AWS et CI/CD.</p>
             </div>
             <div class="project">
-                <img src="img/project3.jpg" alt="Calcul de Distance pour Taxis">
+                <img src="img/datastream2.webp" alt="Calcul de Distance pour Taxis">
                 <h3><a href="https://lien-vers-projet3.com">Calcul de Distance et Prix pour Taxis</a></h3>
                 <p>Backend pour la gestion des trajets en taxi avec calcul en temps réel de la distance et du prix.</p>
             </div>
             <div class="project">
-                <img src="img/project4.jpg" alt="Système de Recommandation">
+                <img src="img/projetneo4j.png" alt="Système de Recommandation">
                 <h3><a href="https://lien-vers-projet4.com">Système de Recommandations Personnalisées</a></h3>
                 <p>Système de recommandation en temps réel basé sur un filtrage collaboratif et de contenu.</p>
             </div>
             <div class="project">
-                <img src="img/project5.jpg" alt="Classification d'Images">
+                <img src="img/Classification.jpg" alt="Classification d'Images">
                 <h3><a href="https://lien-vers-projet5.com">Classification d'Images</a></h3>
                 <p>Utilisation de réseaux de neurones pour la classification automatique de panneaux de signalisation.</p>
             </div>
+            <div class="project">
+                <img src="img/Classification.jpg" alt="Classification d'Images">
+                <h3><a href="https://lien-vers-projet5.com">Classification d'Images</a></h3>
+                <p>Utilisation de réseaux de neurones pour la classification automatique de panneaux de signalisation.</p>
+            </div>
+            <!--<div class="project">
+                <img src="img/Classification.jpg" alt="Classification d'Images">
+                <h3><a href="https://lien-vers-projet5.com">Classification d'Images</a></h3>
+                <p>Utilisation de réseaux de neurones pour la classification automatique de panneaux de signalisation.</p>
+            </div>-->
         </div>
     </section>
 
     <!-- Section Compétences -->
-    <section id="skills">
-        <h2>Mes Compétences</h2>
-        <div class="skills-list">
-            <div class="skill">
-                <img src="img/python.png" alt="Python" class="skill-icon">
+<div id="skills">
+    <h2>Mes Compétences</h2>
+    <div class="skills-list">
+        <div class="skill">
+                <i class="fab fa-python"></i>
                 <span>Python</span>
-            </div>
-            <div class="skill">
-                <img src="img/java.png" alt="Java" class="skill-icon">
-                <span>Java</span>
-            </div>
-            <div class="skill">
-                <i class="fab fa-docker"></i>
-                <span>Docker</span>
-            </div>
-            <div class="skill">
-                <i class="fab fa-aws"></i>
-                <span>AWS</span>
-            </div>
-            <!-- Ajoute d'autres compétences avec leur icône ou image -->
         </div>
-    </section>
+        <div class="skill">
+            <i class="fab fa-java"></i>
+            <span>Java</span>
+        </div>
+        <div class="skill">
+            <i class="fab fa-docker"></i>
+            <span>Docker</span>
+        </div>
+        <div class="skill">
+            <i class="fab fa-aws"></i>
+            <span>AWS</span>
+        </div>
+        <div class="skill">
+            <img src="img/nifi.png" alt="NIFI" class="skill-icon">
+            <span>NIFI</span>
+        </div>
+        <div class="skill">
+            <img src="img/gcloud.png" alt="Google Cloud" class="skill-icon">
+            <span>Google Cloud</span>
+        </div>
+        <div class="skill">
+            <img src="img/azure.png" alt="Microsoft Azure" class="skill-icon">
+            <span>Microsoft Azure</span>
+        </div>
+        <div class="skill">
+            <img src="img/powerbi.png" alt="Microsoft Power BI" class="skill-icon">
+            <span>Microsoft Power BI</span>
+        </div>
+        <div class="skill">
+            <img src="img/neo4j.png" alt="Neo4j" class="skill-icon">
+            <span>Neo4j</span>
+        </div>
+    </div>
+</section>
+
     
 
     <!-- Section Contact -->
     <section id="contact">
         <h2>Contactez-moi</h2>
-        <form id="contact-form">
+        <form id="contact-form" action="mailto:salam.mejri@gmail.com">
             <input type="text" name="name" placeholder="Nom" required>
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="email" name="email" placeholder="Email@Email.com" required>
             <textarea name="message" placeholder="Votre message..." required></textarea>
             <button type="submit">Envoyer</button>
         </form>
-        <div id="message-success" style="display:none; color:green;">Votre message a été envoyé avec succès !</div>
-        <div id="message-error" style="display:none; color:red;">Erreur lors de l'envoi du message.</div>
-    </section>    
+    </section>
 
     <!-- Bouton de remontée -->
     <button id="scrollTopBtn">↑ Remonter</button>
