@@ -3,7 +3,7 @@ name: Deploy Portfolio MEJRI Salam with EmailJS Secrets
 on:
   push:
     branches:
-      - main
+      - main  # Déclenche le workflow lorsqu'il y a un push sur la branche main
 
 jobs:
   build-and-deploy:
@@ -13,22 +13,36 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    # Configuration de Node.js pour l'environnement
     - name: Set up Node.js environment
       uses: actions/setup-node@v2
       with:
         node-version: '14'
 
+    # Installation des dépendances (si applicable, si tu utilises un framework comme React ou Vue.js)
     - name: Install dependencies
-      run: npm install
+      run: |
+        if [ -f package.json ]; then
+          npm install
+        fi
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
-
+    # Création du fichier .env pour EmailJS avec les secrets GitHub
     - name: Create ENV file for EmailJS
       run: |
         echo "REACT_APP_EMAILJS_USER_ID=${{ secrets.EMAILJS_USER_ID }}" >> .env
         echo "REACT_APP_EMAILJS_SERVICE_ID=${{ secrets.EMAILJS_SERVICE_ID }}" >> .env
         echo "REACT_APP_EMAILJS_TEMPLATE_ID=${{ secrets.EMAILJS_TEMPLATE_ID }}" >> .env
+
+    # Construction du projet (build) si un système de build est utilisé
+    - name: Build project
+      run: |
+        if [ -f package.json ]; then
+          npm run build
+        fi
+
+    # Déploiement vers GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public  # Le répertoire où se trouvent tes fichiers à déployer
