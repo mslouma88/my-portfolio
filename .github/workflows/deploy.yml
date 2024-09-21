@@ -1,4 +1,4 @@
-name: Deploy Portfolio with EmailJS Secrets
+name: Deploy Portfolio MEJRI Salam with EmailJS Secrets
 
 on:
   push:
