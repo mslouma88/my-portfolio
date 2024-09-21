@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Salam MEJRI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- SDK EmailJS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- Menu de navigation -->
+    <nav class="side-menu">
+        <ul>
+            <li><a href="#about">À propos de moi</a></li>
+            <li><a href="#projects">Mes Projets</a></li>
+            <li><a href="#skills">Mes Compétences</a></li>
+            <li><a href="#contact">Me Contacter</a></li>
+        </ul>
+    </nav>
+
+    <!-- Bouton pour changer de langue -->
+    <div class="language-switch">
+        <a href="indexEN.html">English</a>
+    </div>
+
+    <!-- Section Nom et Réseaux Sociaux -->
+    <header id="home">
+        <h1>Salam MEJRI</h1>
+        <h2>Data Engineer</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/salam-mejri/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/mslouma88" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:salam.mejri@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+        <div id="clock"></div>
+    </header>
+
+    <!-- Section À propos de moi -->
+    <section id="about">
+        <h2>À propos de moi</h2>
+        <p>
+            Je suis Salam Mejri, étudiant en Master Data Analytics à l'Université Sorbonne Paris 1. Passionné par l'analyse de données et la gestion des grandes quantités d'information, je me spécialise dans la création de solutions innovantes de Data Engineering. Je possède une solide expérience dans des outils tels que Python, NIFI, Microsoft Azure, Google Cloud et Power BI.
+        </p>
+        <p>
+            Actuellement, je recherche une opportunité en tant que Data Engineer pour appliquer mes compétences dans un environnement dynamique et contribuer à la réussite de projets de traitement de données à grande échelle.
+        </p>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projects">
+        <h2>Mes Projets</h2>
+        <div class="project-grid">
+            <div class="project">
+                <img src="img/BI.png" alt="Projet BI sur Azure">
+                <h3><a href="https://github.com/mslouma88/PowerBI">Projet Microsoft BI & Microsoft Azure</a></h3>
+                <p>Conception d'une solution de Business Intelligence sur Microsoft Azure pour Transia, avec des tableaux de bord interactifs Power BI.</p>
+            </div>
+            <div class="project">
+                <img src="img/mlops.jpg" alt="Prédiction de Défaut de Paiement">
+                <h3><a href="https://github.com/mslouma88/ProjetMLOps">Prédiction de Défaut de Paiement</a></h3>
+                <p>Développement d'un modèle prédictif pour la détection de défauts de paiement pour une banque, en utilisant AWS et CI/CD.</p>
+            </div>
+            <div class="project">
+                <img src="img/datastream2.webp" alt="Calcul de Distance pour Taxis">
+                <h3><a href="#">Calcul de Distance et Prix pour Taxis</a></h3>
+                <p>Backend permettant de calculer en temps réel la distance et le prix des trajets en taxi avec un système Big Data.</p>
+            </div>
+            <div class="project">
+                <img src="img/projetneo4j.png" alt="Système de Recommandation">
+                <h3><a href="https://github.com/mslouma88/Projet_NEO4J_JAVA">Système de Recommandation Personnalisé</a></h3>
+                <p>Création d'un système de recommandation en temps réel utilisant Neo4j et des algorithmes de filtrage collaboratif.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="skills">
+        <h2>Mes Compétences</h2>
+        <div class="skills-list">
+            <div class="skill">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+            </div>
+            <div class="skill">
+                <i class="fab fa-java"></i>
+                <span>Java</span>
+            </div>
+            <div class="skill">
+                <i class="fab fa-docker"></i>
+                <span>Docker</span>
+            </div>
+            <div class="skill">
+                <i class="fab fa-aws"></i>
+                <span>AWS</span>
+            </div>
+            <div class="skill">
+                <img src="img/nifilogo.png" alt="NIFI" class="skill-icon">
+                <span>NIFI</span>
+            </div>
+            <div class="skill">
+                <img src="img/gcloud.png" alt="Google Cloud" class="skill-icon">
+                <span>Google Cloud</span>
+            </div>
+            <div class="skill">
+                <img src="img/azure.svg" alt="Microsoft Azure" class="skill-icon">
+                <span>Microsoft Azure</span>
+            </div>
+            <div class="skill">
+                <img src="img/powerbi.png" alt="Microsoft Power BI" class="skill-icon">
+                <span>Microsoft Power BI</span>
+            </div>
+            <div class="skill">
+                <img src="img/neo4j.png" alt="Neo4j" class="skill-icon">
+                <span>Neo4j</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <form id="contact-form" action="mailto:salam.mejri@gmail.com">
+            <input type="text" name="name" placeholder="Nom" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Votre message..." required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Bouton de remontée -->
+    <button id="scrollTopBtn">↑ Remonter</button>
+
+</body>
+</html>

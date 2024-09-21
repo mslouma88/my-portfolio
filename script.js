@@ -27,3 +27,21 @@ function updateClock() {
 }
 
 setInterval(updateClock, 1000);
+
+
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, this, process.env.REACT_APP_EMAILJS_USER_ID)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            document.getElementById('message-success').style.display = 'block';
+        }, function(error) {
+            console.log('FAILED...', error);
+            document.getElementById('message-error').style.display = 'block';
+        });
+
+    // Optionnel : réinitialiser le formulaire après envoi
+    this.reset();
+});

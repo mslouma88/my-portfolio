@@ -11,6 +11,17 @@
     <!-- SDK EmailJS -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
+    <!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      // Utilisation des variables d'environnement pour sécuriser les identifiants EmailJS
+      const emailJsUserId = process.env.REACT_APP_EMAILJS_USER_ID || 'salam.mejri'; // Remplace 'TON_USER_ID' par la valeur par défaut pour le développement local
+      emailjs.init(emailJsUserId);
+   })();
+</script>
+
+
 </head>
 <body>
     <!-- Menu vertical -->
@@ -141,18 +152,20 @@
     </div>
 </section>
 
-    
 
     <!-- Section Contact -->
     <section id="contact">
-        <h2>Contactez-moi</h2>
-        <form id="contact-form" action="mailto:salam.mejri@gmail.com">
-            <input type="text" name="name" placeholder="Nom" required>
-            <input type="email" name="email" placeholder="Email@Email.com" required>
-            <textarea name="message" placeholder="Votre message..." required></textarea>
-            <button type="submit">Envoyer</button>
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message..." required></textarea>
+            <button type="submit">Send</button>
         </form>
+        <div id="message-success" style="display:none; color:green;">Your message has been sent successfully!</div>
+        <div id="message-error" style="display:none; color:red;">There was an error sending your message.</div>
     </section>
+    
 
     <!-- Bouton de remontée -->
     <button id="scrollTopBtn">↑ Remonter</button>
