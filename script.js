@@ -45,18 +45,3 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     // Optionnel : réinitialiser le formulaire après envoi
     this.reset();
 });
-
-// Ajoute un scrolling fluide pour les liens du menu qui pointent vers des ancres
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();  // Empêche le comportement par défaut du lien
-
-        // Récupère la section ciblée par le lien
-        const target = document.querySelector(this.getAttribute('href'));
-
-        // Active un défilement fluide vers la section
-        target.scrollIntoView({
-            behavior: 'smooth'  // Comportement de défilement fluide
-        });
-    });
-});
