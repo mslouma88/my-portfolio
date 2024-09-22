@@ -12,14 +12,33 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
     <!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      // Utilisation des variables d'environnement pour sécuriser les identifiants EmailJS
-      const emailJsUserId = process.env.REACT_APP_EMAILJS_USER_ID || 'salam.mejri'; 
-            emailjs.init(emailJsUserId);
-   })();
-</script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        // Utilisation des variables d'environnement pour sécuriser les identifiants EmailJS
+        const emailJsUserId = process.env.REACT_APP_EMAILJS_USER_ID || 'salam.mejri'; 
+                emailjs.init(emailJsUserId);
+    })();
+    </script>
+
+    <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Récupère la section ciblée
+            const target = document.querySelector(this.getAttribute('href'));
+
+            // Défilement fluide
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    </script>
+
+
 
 
 </head>
