@@ -28,10 +28,6 @@ This portfolio was developed using the following technologies:
 
 3. To customize the content (projects, skills, etc.), modify the `index.html` and `style.css` files accordingly.
 
-## 🤝 Contributions
-
-Contributions are welcome! Feel free to submit issues or pull requests on GitHub to improve this project. Let's build something great together!
-
 ## 📝 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
