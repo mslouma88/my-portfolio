@@ -3,190 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Salam MEJRI</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>Salam MEJRI - Data Engineer</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- SDK EmailJS -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-    (function(){
-        // Utilisation des variables d'environnement pour sécuriser les identifiants EmailJS
-        const emailJsUserId = process.env.REACT_APP_EMAILJS_USER_ID || 'salam.mejri'; 
-                emailjs.init(emailJsUserId);
-    })();
-    </script>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+        }
 
-    <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            // Récupère la section ciblée
-            const target = document.querySelector(this.getAttribute('href'));
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
 
-            // Défilement fluide
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    </script>
+        }
 
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
+        .container p {
+            font-size: 1.2rem;
+        }
 
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skill {
+            background-color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* Style de base pour le bouton */
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Animation de rebond pour attirer l'attention */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .contact-form button:hover {
+            background-color: #2980b9;
+            animation: bounce 1s ease infinite;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        /* Styles pour les icônes des réseaux sociaux */
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5em; /* Taille des icônes */
+            transition: color 0.3s ease;
+        }
+
+        .social-links a i {
+            margin-right: 8px;
+        }
+
+        .social-links a:hover {
+            color: #2c3e50; /* Couleur au survol */
+        }
+
+        .menu a:hover {
+            color: #3498db;
+        }
+
+        
+        /* Styles pour le bouton "Remonter en haut" */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            display: none; /* Cache le bouton au départ */
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #2980b9;
+        }
+
+        #scrollToTopBtn i {
+            margin: 0;
+        }
+
+    </style>
 </head>
 <body>
-    <!-- Menu vertical -->
-    <nav class="side-menu">
-        <ul>
-            <li><a href="#about">À propos de moi</a></li>
-            <li><a href="#projects">Mes Projets</a></li>
-            <li><a href="#skills">Mes Compétences</a></li>
-            <li><a href="#contact">Me Contacter</a></li>
-        </ul>
-    </nav>
-
-    <!-- Bouton pour changer de langue -->
-    <div class="language-switch">
-        <a href="indexen.html">English</a>
-    </div>
-
-    <!-- Section Nom et Réseaux Sociaux -->
-    <header id="home">
-        <h1>Salam MEJRI</h1>
-        <h2>Data Engineer</h2>
-        <div class="social-links">
+    <header>
+        <div class="container">
+            <h1>Salam MEJRI</h1>
+            <p>Data Engineer | Cloud Computing | MLOps | Data Science | Génerative IA | Data Visualization </p>
+        </div>
+        
+        <div class="social-links" >
             <a href="https://www.linkedin.com/in/salam-mejri/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <a href="https://github.com/mslouma88" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             <a href="mailto:salam.mejri@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
-        
-        <div id="clock"></div>
+        <br/>
+        <!--<div id="clock"></div>-->
     </header>
-    <section id="about">
-        <h2>À propos de moi</h2>
-        <p>
-            Je suis Salam Mejri, actuellement étudiant en Master Data Analytics à l'Université Sorbonne Paris 1. Passionné par les données et les technologies associées, je me spécialise dans la gestion et l’analyse de grands volumes de données. 
-        </p>
-        <p>
-            Tout au long de mes études, j'ai acquis des compétences solides en <strong>Python, NIFI, Microsoft Azure, Google Cloud, Power BI</strong> et d'autres technologies clés du domaine des données. J'ai également participé à plusieurs projets académiques, notamment en <strong>Business Intelligence</strong>, en <strong>machine learning</strong> et en <strong>Big Data</strong>, qui m'ont permis de travailler sur des systèmes complexes de traitement et d’analyse des données.
-        </p>
-        <p>
-            Actuellement à la recherche d'une opportunité en tant que <strong>Data Engineer</strong>, je souhaite mettre à profit mes compétences en ingestion de données, traitement de flux en temps réel et architecture cloud pour contribuer au succès d’une entreprise.
-        </p>
-    </section>
-    
-    
 
-    <!-- Section Projets -->
-    <section id="projects">
-        <h2>Mes Projets</h2>
-        <div class="project-grid">
-            <!-- Remplissage avec les projets du CV -->
-            <div class="project">
-                <img src="img/BI.png" alt="Projet BI sur Azure">
-                <h3><a href="https://github.com/mslouma88/PowerBI">Projet Microsoft BI & Microsoft Azure</a></h3>
-                <p>Conception d'une solution de Business Intelligence sur Microsoft Azure et création de dashboard pour Transia.</p>
-            </div>
-            <div class="project">
-                <img src="img/mlops.jpg" alt="Prédiction de Défaut de Paiement">
-                <h3><a href="https://github.com/mslouma88/ProjetMLOps">Prédiction de Défaut de Paiement</a></h3>
-                <p>Développement d'un modèle prédictif de défaut de paiement pour une banque avec AWS et CI/CD.</p>
-            </div>
-            <div class="project">
-                <img src="img/datastream2.webp" alt="Calcul de Distance pour Taxis">
-                <h3><a href="#">Calcul de Distance et Prix pour Taxis</a></h3>
-                <p>Backend pour la gestion des trajets en taxi avec calcul en temps réel de la distance et du prix.</p>
-            </div>
-            <div class="project">
-                <img src="img/projetneo4j.png" alt="Système de Recommandation">
-                <h3><a href="https://github.com/mslouma88/Projet_NEO4J_JAVA">Système de Recommandations Personnalisées</a></h3>
-                <p>Système de recommandation en temps réel basé sur un filtrage collaboratif et de contenu.</p>
-            </div>
-            <div class="project">
-                <img src="img/Classification.jpg" alt="Classification d'Images">
-                <h3><a href="https://github.com/mslouma88/">Classification d'Images </a></h3>
-                <p>Utilisation de réseaux de neurones pour la classification automatique de panneaux de signalisation.</p>
-            </div>
-            <div class="project">
-                <img src="img/image.png" alt="Classification d'Images">
-                <h3><a href="https://github.com/mslouma88/"">Developpement d'un chatbot médical</a></h3>
-                <p>Utilisation d’un modèle RAG et d’une base de données pour le stockage et la recherche.</p>
-            </div>
-            <!--<div class="project">
-                <img src="img/Classification.jpg" alt="Classification d'Images">
-                <h3><a href="https://lien-vers-projet5.com">Classification d'Images</a></h3>
-                <p>Utilisation de réseaux de neurones pour la classification automatique de panneaux de signalisation.</p>
-            </div>-->
-        </div>
-    </section>
+    <nav>
+        <ul class="menu">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+    </nav>
 
-    <!-- Section Compétences -->
-<div id="skills">
-    <h2>Mes Compétences</h2>
-    <div class="skills-list">
-        <div class="skill">
-                <i class="fab fa-python"></i>
-                <span>Python</span>
-        </div>
-        <div class="skill">
-            <i class="fab fa-java"></i>
-            <span>Java</span>
-        </div>
-        <div class="skill">
-            <i class="fab fa-docker"></i>
-            <span>Docker</span>
-        </div>
-        <div class="skill">
-            <i class="fab fa-aws"></i>
-            <span>AWS</span>
-        </div>
-        <div class="skill">
-            <img src="img/nifilogo.png" alt="NIFI" class="skill-icon">
-            <span>NIFI</span>
-        </div>
-        <div class="skill">
-            <img src="img/gcloud.png" alt="Google Cloud" class="skill-icon">
-            <span>Google Cloud</span>
-        </div>
-        <div class="skill">
-            <img src="img/azure.svg" alt="Microsoft Azure" class="skill-icon">
-            <span>Microsoft Azure</span>
-        </div>
-        <div class="skill">
-            <img src="img/powerbi.png" alt="Microsoft Power BI" class="skill-icon">
-            <span>Microsoft Power BI</span>
-        </div>
-        <div class="skill">
-            <img src="img/neo4j.png" alt="Neo4j" class="skill-icon">
-            <span>Neo4j</span>
-        </div>
-    </div>
-</section>
+    <main>
+        <section id="about">
+            <div class="container">
+                <h2>À propos de moi</h2>
+                <p style="text-align: justify;">Hello👋 ! <br/>
+                Je suis Salam, actuellement étudiant en Master Data Analytics à l'Université Sorbonne Paris 1. Passionné par les données et les technologies associées, je me spécialise dans la gestion et l’analyse de données. Tout au long de mes études, j'ai acquis des compétences solides en Python, NIFI, Microsoft Azure, Google Cloud, Power BI et d'autres technologies clés du domaine des données. J'ai également participé à plusieurs projets académiques, notamment en Business Intelligence, en machine learning et en Big Data, qui m'ont permis de travailler sur des systèmes complexes de traitement et d’analyse des données. Actuellement à la recherche d'une opportunité en tant que Data Engineer, je souhaite mettre à profit mes compétences en ingestion de données, traitement de flux en temps réel et architecture cloud pour contribuer au succès d’une entreprise.</p>
+            </div>
+        </section>
 
+        <section id="projects">
+            <div class="container">
+                <h2>Mes Projets</h2>
+                <div class="project-grid">
+                    <div class="project">
+                        <img src="img/BI.png" alt="Projet BI sur Azure">
+                        <div class="project-content">
+                            <h3>Projet Microsoft BI & Microsoft Azure</h3>
+                            <p>Conception d'une solution de Business Intelligence sur Microsoft Azure et création de dashboard pour Transia.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                        <img src="img/mlops.jpg" alt="Prédiction de Défaut de Paiement">
+                        <div class="project-content">
+                            <h3><a href="https://github.com/mslouma88/ProjetMLOps">Prédiction de Défaut de Paiement</a></h3>
+                            <p>Développement d'un modèle prédictif de défaut de paiement pour une banque avec AWS et CI/CD.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                        <img src="img/datastream2.webp" alt="Calcul de Distance pour Taxis">
+                        <div class="project-content">
+                            <h3><a href="#">Calcul de Distance et Prix pour Taxis</a></h3>
+                            <p>Backend pour la gestion des trajets en taxi avec calcul en temps réel de la distance et du prix.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                        <img src="img/image.png" alt="Chatbot médical">
+                        <div class="project-content">
+                            <h3><a href="https://github.com/mslouma88/">Developpement d'un chatbot médical</a></h3>
+                            <p>Utilisation d'un modèle RAG et d'une base de données pour le stockage et la recherche.</p>
+                        </div>
+                    </div>
 
-    <!-- Section Contact -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message..." required></textarea>
-            <button type="submit">Send</button>
-        </form>
-        <div id="message-success" style="display:none; color:green;">Your message has been sent successfully!</div>
-        <div id="message-error" style="display:none; color:red;">There was an error sending your message.</div>
-    </section>
-    
+                    <div class="project">
+                        <img src="img/InfintyIA.png" alt="Classification d'Images">
+                        <div class="project-content">
+                            <h3><a href="https://github.com/mslouma88/InfinityIA">Infinity IA</a></h3>
+                            <p>Infinity AI est une plateforme de collaboration créative et de productivité augmentée qui utilise l'IA GPT-3.5-turbo et SerpAPI pour offrir un soutien intelligent aux utilisateurs dans divers domaines.</p>
+                        </div>
+                    </div>
 
-    <!-- Bouton de remontée -->
-    <button id="scrollTopBtn">↑ Remonter</button>
+                    <div class="project">
+                        <img src="img/projetneo4j.png" alt="Système de Recommandation">
+                        <div class="project-content">
+                            <h3><a href="https://github.com/mslouma88/Projet_NEO4J_JAVA">Système de Recommandations Personnalisées</a></h3>
+                            <p>Système de recommandation en temps réel basé sur un filtrage collaboratif et de contenu.</p>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <img src="img/Classification.jpg" alt="Classification d'Images">
+                        <div class="project-content">
+                            <h3><a href="https://github.com/mslouma88/">Classification d'Images</a></h3>
+                            <p>Utilisation de réseaux de neurones pour la classification automatique de panneaux de signalisation.</p>
+                        </div>
+                    </div>
+                                        
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Mes Compétences</h2>
+                <div class="skills-list">
+                    <div class="skill">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-java"></i>
+                        <span>Java</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-docker"></i>
+                        <span>Docker</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-github"></i>
+                        <span>Github</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-azure"></i>
+                        <span>Azure</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-google"></i>
+                        <span>GCP</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Power BI</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Apache Spark</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-brain"></i>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-network-wired"></i>
+                        <span>MLOps</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-robot"></i>
+                        <span>Deep Learning</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-database"></i>
+                        <span>Neo4j</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-server"></i>
+                        <span>FastAPI</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-microchip"></i>
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-fire"></i>
+                        <span>PyTorch</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-code"></i>
+                        <span>Scikit-learn</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-comments"></i>
+                        <span>LangChain</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>CI/CD</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-bolt"></i>
+                        <span>Databricks</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-book-open"></i>
+                        <span>Jupyter Notebook</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-book"></i>
+                        <span>Google Colab</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-terminal"></i>
+                        <span>Anaconda</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>VS Code</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-robot"></i>
+                        <span>IA Générative</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-brain"></i>
+                        <span>LLM</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-microchip"></i>
+                        <span>Hugging Face</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-diagram-project"></i>
+                        <span>RAG</span>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-cube"></i>
+                        <span>Prompt Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Me Contacter</h2>
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
+                    <textarea name="message" placeholder="Votre message" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+        </section>
+ 
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Salam MEJRI. Tous droits réservés.</p>
+        </div>
+
+    </footer>
+
+    <button id="scrollToTopBtn" title="Remonter en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="script.js">
+        // Ajoutez ici votre JavaScript pour la fonctionnalité du formulaire de contact
+    </script>
+
 </body>
 </html>

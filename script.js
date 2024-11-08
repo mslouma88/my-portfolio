@@ -1,24 +1,37 @@
-// Form Submission Handling
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Merci pour votre message. Je vous répondrai bientôt.');
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
 
-// Scroll to Top Button
-let scrollTopBtn = document.getElementById('scrollTopBtn');
 
+// Récupère le bouton
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Affiche ou cache le bouton en fonction du défilement de la page
 window.onscroll = function() {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollTopBtn.style.display = "block";
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollToTopBtn.style.display = 'block'; // Affiche le bouton
     } else {
-        scrollTopBtn.style.display = "none";
+        scrollToTopBtn.style.display = 'none'; // Cache le bouton
     }
 };
 
-scrollTopBtn.addEventListener('click', function() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-});
+// Fonction de défilement vers le haut
+scrollToTopBtn.onclick = function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Défilement fluide
+    });
+};
 
+
+
+/*
 // Display current date and time
 function updateClock() {
     const now = new Date();
@@ -27,21 +40,4 @@ function updateClock() {
 }
 
 setInterval(updateClock, 1000);
-
-
-
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, this, process.env.REACT_APP_EMAILJS_USER_ID)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            document.getElementById('message-success').style.display = 'block';
-        }, function(error) {
-            console.log('FAILED...', error);
-            document.getElementById('message-error').style.display = 'block';
-        });
-
-    // Optionnel : réinitialiser le formulaire après envoi
-    this.reset();
-});
+*/
